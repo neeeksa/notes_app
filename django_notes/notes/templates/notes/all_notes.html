@@ -1,0 +1,20 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}All Notes{% endblock %}
+
+{% block content %}
+    <div class="features" id="all-notes-content">
+        {% if notes %}
+            {% for note in notes %}
+                <div class="note">
+                    <h2>{{ note.title }}</h2>
+                    <p>{{ note.full_text|truncatechars:100 }}</p>
+                    <p>{{ note.date }}</p>
+                    <a href="{% url 'notes_view' note.id %}"><button class="btn btn-primary"> Read more</button></a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No notes available. You can create a new note <a href="{% url 'create' %}">here</a>.</p>
+        {% endif %}
+    </div>
+{% endblock %}

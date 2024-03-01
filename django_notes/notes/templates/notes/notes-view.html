@@ -1,0 +1,14 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}{{ notes.title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ notes.title }}</h1>
+        <p>{{ notes.date }}</p>
+        <p>{{ notes.full_text }}</p>
+        <a href="{% url 'all_notes' %}"><button class="btn btn-primary"> Back to all notes</button></a>
+        <a href="{% url 'notes_update' notes.id %}"><button class="btn btn-primary"> Edit note </button></a>
+        <a href="{% url 'notes_delete' notes.id %}"><button class="btn btn-primary"> Delete note </button></a>
+    </div>
+{% endblock %}

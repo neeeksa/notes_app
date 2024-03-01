@@ -1,0 +1,15 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}Delete note{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Delete note</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <button class="btn btn-primary" type="submit">Delete note</button>
+        </form>
+    </div>
+{% endblock %}
